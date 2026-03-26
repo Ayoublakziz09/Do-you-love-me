@@ -15,13 +15,11 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow: hidden;
         }
-
         .container {
             text-align: center;
             padding: 20px;
             width: 100%;
         }
-
         #main-gif {
             width: 200px;
             height: auto;
@@ -29,14 +27,12 @@
             margin-bottom: 20px;
             transition: all 0.5s ease;
         }
-
         h1 {
             color: #d81b60;
             font-size: 2rem;
             margin-bottom: 30px;
-            min-height: 60px; /* Bach l-kelma ma t-ze3ze3ch l-layout */
+            min-height: 60px;
         }
-
         .buttons {
             display: flex;
             justify-content: center;
@@ -45,7 +41,6 @@
             position: relative;
             min-height: 250px;
         }
-
         button {
             padding: 15px 30px;
             font-size: 1.2rem;
@@ -56,23 +51,14 @@
             transition: all 0.3s ease-in-out;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-
-        #yesBtn {
-            background-color: #f06292;
-            color: white;
-            z-index: 10;
-        }
-
-        #noBtn {
-            background-color: #eeeeee;
-            color: #757575;
-        }
+        #yesBtn { background-color: #f06292; color: white; z-index: 10; }
+        #noBtn { background-color: #eeeeee; color: #757575; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img id="main-gif" src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyZDFxcDNobm15b2VpcjJpMW85aDU2amhpNmNlcWh4ZWNhaDYwemxvZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/X7Bckr1JaJS1opWTzO/giphy.gif" alt="Cute Giraffe">
+        <img id="main-gif" src="giraffe.gif" alt="Cute Giraffe">
         
         <h1 id="question">Katbghini? 🥺</h1>
 
@@ -102,20 +88,16 @@
         let noOpacity = 1;
 
         noBtn.addEventListener('click', () => {
-            // 1. Beddel l-kelma (l-messagi)
             question.innerText = messages[messageIndex];
             messageIndex = (messageIndex + 1) % messages.length;
 
-            // 2. Kbbér l-bouton dyal "AH"
             yesSize += 0.7; 
             yesBtn.style.fontSize = `${yesSize}rem`;
             yesBtn.style.padding = `${yesSize * 10}px ${yesSize * 22}px`;
 
-            // 3. Ghabbér l-bouton dyal "LA" (Opacity)
             noOpacity -= 0.15; 
             noBtn.style.opacity = noOpacity;
 
-            // Ila l-opacity qerbat l-0، ghabbérha f-merra
             if (noOpacity <= 0.1) {
                 noBtn.style.visibility = 'hidden';
             }
@@ -123,12 +105,10 @@
 
         yesBtn.addEventListener('click', () => {
             question.innerHTML = "Yaaay! 💖";
-            mainGif.src = "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUyZDl2cmFvajJrMGZiZnpzMWZpdTUzeTF4a21nbTk2cGU0ejJrcmY1MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RB46T9ysjzDEs/giphy.gif";
-            
+            // HNA SMIYA DYAL SORA DYAL L-FERHA (Optional)
+            mainGif.src = "happy.gif"; 
             noBtn.style.display = 'none';
-            // Rje3 l-hجم li kheddam bih
             yesBtn.style.fontSize = "1.5rem";
-            yesBtn.style.padding = "15px 30px";
         });
     </script>
 </body>
