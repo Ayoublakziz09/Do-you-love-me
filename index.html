@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katbghini? 💖</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fce4ec;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+        }
+
+        #main-gif {
+            width: 200px;
+            height: auto;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            transition: all 0.5s ease;
+        }
+
+        h1 {
+            color: #d81b60;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            min-height: 60px; /* Bach l-kelma ma t-ze3ze3ch l-layout */
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            min-height: 250px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        #yesBtn {
+            background-color: #f06292;
+            color: white;
+            z-index: 10;
+        }
+
+        #noBtn {
+            background-color: #eeeeee;
+            color: #757575;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img id="main-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp4MmZreHBrZzE2YmZ4YmZ4YmZ4YmZ4YmZ4YmZ4YmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/v0v7mK1Jp89p0X9XzX/giphy.gif" alt="Cute Giraffe">
+        
+        <h1 id="question">Katbghini? 🥺</h1>
+
+        <div class="buttons">
+            <button id="yesBtn">AH</button>
+            <button id="noBtn">LA</button>
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const question = document.getElementById('question');
+        const mainGif = document.getElementById('main-gif');
+
+        const messages = [
+            "Wach mt2kda? 🤔",
+            "Choufi wkan... 🙄",
+            "Wa zidi fkri! 😤",
+            "Goli Ah 3afak 🥺",
+            "Safi makhashnich... 💔",
+            "Ghir kankdb GOLI AH! 😂"
+        ];
+
+        let messageIndex = 0;
+        let yesSize = 1.2;
+        let noOpacity = 1;
+
+        noBtn.addEventListener('click', () => {
+            // 1. Beddel l-kelma (l-messagi)
+            question.innerText = messages[messageIndex];
+            messageIndex = (messageIndex + 1) % messages.length;
+
+            // 2. Kbbér l-bouton dyal "AH"
+            yesSize += 0.7; 
+            yesBtn.style.fontSize = `${yesSize}rem`;
+            yesBtn.style.padding = `${yesSize * 10}px ${yesSize * 22}px`;
+
+            // 3. Ghabbér l-bouton dyal "LA" (Opacity)
+            noOpacity -= 0.15; 
+            noBtn.style.opacity = noOpacity;
+
+            // Ila l-opacity qerbat l-0، ghabbérha f-merra
+            if (noOpacity <= 0.1) {
+                noBtn.style.visibility = 'hidden';
+            }
+        });
+
+        yesBtn.addEventListener('click', () => {
+            question.innerHTML = "Yaaay! 💖";
+            mainGif.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp4MmZreHBrZzE2YmZ4YmZ4YmZ4YmZ4YmZ4YmZ4YmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/26BRv0ThflsHCqTC8/giphy.gif";
+            
+            noBtn.style.display = 'none';
+            // Rje3 l-hجم li kheddam bih
+            yesBtn.style.fontSize = "1.5rem";
+            yesBtn.style.padding = "15px 30px";
+        });
+    </script>
+</body>
+</html>
