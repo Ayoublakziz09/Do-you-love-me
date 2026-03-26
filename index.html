@@ -58,7 +58,7 @@
 <body>
 
     <div class="container">
-        <img id="main-gif" src="Cattyara.gif" alt="Cattyara.gif">
+        <img id="main-gif" src="Cattyara.gif" alt="Cute Giraffe">
         
         <h1 id="question">Katbghini? 🥺</h1>
 
@@ -95,16 +95,16 @@
             yesBtn.style.fontSize = `${yesSize}rem`;
             yesBtn.style.padding = `${yesSize * 10}px ${yesSize * 22}px`;
 
-            noOpacity -= 0.9; 
+            noOpacity -= 0.15; 
             noBtn.style.opacity = noOpacity;
 
-            if (noOpacity <= 0.15) {
+            if (noOpacity <= 0.1) {
                 noBtn.style.visibility = 'hidden';
             }
         });
 
         yesBtn.addEventListener('click', () => {
-            question.innerHTML = "Yaaay! muaaaah💋 taa ana kanmuut elik💖";
+            question.innerHTML = "Yaaay! Muuuah💋 taaa ana kanhbeeek bzzf 💖";
             // HNA SMIYA DYAL SORA DYAL L-FERHA (Optional)
             mainGif.src = "giphy.gif"; 
             noBtn.style.display = 'none';
